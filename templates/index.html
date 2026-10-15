@@ -1,36 +1,32 @@
-
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Emotion Detector</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="./static/mywebscript.js"></script>
+    <style>
+        .center-heading {
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
-    <h1>Emotion Detector</h1>
+    <div class="card">
+        <div class="card-body">
+            <h1 class="center-heading">NLP - Emotion Detection</h1> 
+            <div style="padding: 25px 25px 25px 25px;">
+            <h2 class="mb-3">
+                <label class="form-label">Please enter the text to be analyzed</label>
+                <input type="textarea" class="form-control" id="textToAnalyze">
+            </h2>
 
-    <form method="POST">
-        <label for="text_to_analyze">Enter text:</label>
-        <textarea id="text_to_analyze"
-                  name="text_to_analyze"
-                  rows="4"
-                  cols="50"></textarea>
-        <br><br>
-        <button type="submit">Analyze Emotion</button>
-    </form>
+            <div style="padding: 25px 25px 25px 25px;">
+                <button onclick="RunSentimentAnalysis()" class="btn btn-secondary">Run Sentiment Analysis</button>
+            </div>
+            <div style="padding: 25px 25px 25px 25px;"></div>
+            <h2 class="mb-3">
+                <label class="form-label">Result of Emotion Detection</label>
+            </h2>
 
-    {% if error %}
-        <p style="color: red;">{{ error }}</p>
-    {% endif %}
-
-    {% if result and result.dominant_emotion %}
-        <h2>Emotion Results</h2>
-        <p>Anger: {{ result.anger }}</p>
-        <p>Disgust: {{ result.disgust }}</p>
-        <p>Fear: {{ result.fear }}</p>
-        <p>Joy: {{ result.joy }}</p>
-        <p>Sadness: {{ result.sadness }}</p>
-        <p>Dominant Emotion: {{ result.dominant_emotion }}</p>
-    {% endif %}
+            <div id="system_response" style="padding: 25px 25px 25px 25px;"></div>
+        </div>
+    </div>
 </body>
-</html>
