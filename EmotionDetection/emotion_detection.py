@@ -4,12 +4,12 @@ Emotion detection module using the IBM Watson NLP service.
 import requests
 
 
-def emotion_detector(text_to_analyze):
+def emotion_detector(text_to_analyse):
     """
     Analyzes the provided text and returns emotion scores and the dominant emotion.
 
     Args:
-        text_to_analyze (str): Text string to analyze for emotion.
+        text_to_analyse (str): Text string to analyze for emotion.
 
     Returns:
         dict: Emotion scores (anger, disgust, fear, joy, sadness) and dominant_emotion.
@@ -23,7 +23,7 @@ def emotion_detector(text_to_analyze):
         'dominant_emotion': None
     }
 
-    if not text_to_analyze or not text_to_analyze.strip():
+    if not text_to_analyse or not str(text_to_analyse).strip():
         return empty_response
 
     url = (
@@ -37,7 +37,7 @@ def emotion_detector(text_to_analyze):
 
     payload = {
         "raw_document": {
-            "text": text_to_analyze
+            "text": text_to_analyse
         }
     }
 
